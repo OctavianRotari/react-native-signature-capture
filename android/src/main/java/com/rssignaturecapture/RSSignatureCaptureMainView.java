@@ -146,7 +146,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
       myDir.mkdirs();
     }
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss.S");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     String datetimeStr  = dateFormat.format(new Date());
     // set the file name of your choice
     String fname = String.format("signature-%s.png", datetimeStr);
