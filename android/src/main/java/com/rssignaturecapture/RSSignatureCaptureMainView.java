@@ -1,5 +1,7 @@
 package com.rssignaturecapture;
 
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 import android.util.Log;
 import android.view.ViewGroup;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
@@ -144,8 +146,10 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
       myDir.mkdirs();
     }
 
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss.S");
+    String datetimeStr  = dateFormat.format(new Date());
     // set the file name of your choice
-    String fname = "signature.png";
+    String fname = String.format("signature-%s.png", datetimeStr);
 
     // in our case, we delete the previous file, you can remove this
     File file = new File(myDir, fname);
