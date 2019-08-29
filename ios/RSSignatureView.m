@@ -191,8 +191,8 @@
 	NSString *documentsDirectory = [paths firstObject];
 
 	NSTimeInterval timeInSeconds = [[NSDate date] timeIntervalSince1970];
-	NSString *fileName = [NSString stringWithFormat:@"/signature-/%f.png", timeInSeconds];
-	NSString *tempPath = [documentsDirectory stringByAppendingFormat:@"%@", fileName];
+	NSString *fileName = [NSString stringWithFormat:@"signature-%f.png", timeInSeconds];
+	NSString *tempPath = [documentsDirectory stringByAppendingFormat:@"/%@", fileName];
 
 	//remove if file already exists
 	if ([[NSFileManager defaultManager] fileExistsAtPath:tempPath]) {
