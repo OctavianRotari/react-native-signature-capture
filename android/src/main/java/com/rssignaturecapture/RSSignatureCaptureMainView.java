@@ -35,6 +35,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
   LinearLayout buttonsLayout;
   RSSignatureCaptureView signatureView;
 
+  Context context;
   Activity mActivity;
   int mOriginalOrientation;
   Boolean saveFileInExtStorage = false;
@@ -46,9 +47,11 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
   public RSSignatureCaptureMainView(Context context, Activity activity) {
     super(context);
     Log.d("React:", "RSSignatureCaptureMainView(Contructtor)");
+
     mOriginalOrientation = activity.getRequestedOrientation();
     mActivity = activity;
 
+    this.context = context;
     this.setOrientation(LinearLayout.VERTICAL);
     this.signatureView = new RSSignatureCaptureView(context,this);
     // add the buttons and signature views
@@ -136,7 +139,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
    */
   final void saveImage() {
 
-    String root = Environment.getExternalCacheDir();
+    String root = this.context.getExternalCacheDir().toString();
 
     // the directory where the signature will be saved
     File myDir = new File(root + "/saved_signature");
